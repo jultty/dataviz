@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jultty.github.io/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jultty.github.io/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jultty.github.io/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://jultty.github.io/assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="https://jultty.github.io/assets/css/estilo.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/monokai.min.css">
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+    <title>jultty &bullet; dataviz</title>
+</head>
+<body>
+    <main class="col">
+        <h1>jultty &bullet; dataviz</h1>
+        <p class="tagline">projetos de visualização de dados</p>
+
+        <h2>Emissões de CO2 por país</h2>
+        <p><a href="https://public.tableau.com/views/EmissesdeCO2porpas/Porpas?:language=pt-BR&:display_count=n&:origin=viz_share_link">Ver no Tableau</a></p>
+        <div class='tableauPlaceholder' id='viz1669494259717' style='position: relative'>
+            <noscript><a href='#'><img alt='Emissões de CO2 por país ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Em&#47;EmissesdeCO2porpas&#47;Porpas&#47;1_rss.png' style='border: none' /></a></noscript>
+            <object class='tableauViz'  style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' />
+                <param name='site_root' value='' />
+                <param name='name' value='EmissesdeCO2porpas&#47;Porpas' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Em&#47;EmissesdeCO2porpas&#47;Porpas&#47;1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='pt-BR' />
+            </object>
+        </div>
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1669494259717');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            
+            vizElement.style.width='100%';
+            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            
+            var scriptElement = document.createElement('script');
+            
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+
+    <h2>clima</h2>
+    <p><a href="cptec/index.html">Acesse a documentação</a> &bullet; <a href="https://github.com/jultty/dataviz/tree/main/clima/cptec">Veja o código fonte</a></p>
+    <img src="assets/img/plot_birigui-sp_2022-11-26.png" alt="Gráfico de linhas mostrando a previsão de temperatura máxima e mínima na cidade de Birigui, São Paulo, do dia 26 de novembro de 2022 ao dia 3 de dezembro de 2022. Há um título com essa mesma descrição no topo do gráfico. Uma legenda informa as cores das linhas no canto superior esquerdo. A cor amarela é usada para a temperatura máxima e a cor azul para a temperatura mínima. O eixo Y mostra a temperatura e o eixo X mostra os dias com o dia da semana correspondente. A temperatura máxima sobe de aproximadamente 27 graus Celsius até 30 no dia 29, mantém-se estável até o dia 30 e depois continua a subir até atingir aproximadamente 33 no dia primeiro de dezembro. Ela se mantém estável até o dia dois e depois continua a subir até o último dia do gráfico, 3 de dezembro. A temperatura mínima começa no dia 26 de novembro abaixo de 17.5 graus Celsius e sobe até o dia 28 quando está abaixo de 20 graus. Ela começa a descer por um dia, marcando aproximadamente 16 graus no dia 29. Ela então sobe de forma estável até o dia 3 de dezembro quando atinge aproximadamente 22 graus Celsius.">
+    <pre><code class="language-python">
+    birigui = Cidade('birigui', 'sp')
+    manaus = Cidade('manaus', 'am')
+
+    cidades = [birigui, manaus]
+
+    aranha.obter(cidades)
+
+    tratadora.extrair(cidades)
+    tratadora.limpar(cidades)
+    tratadora.exportar(cidades)
+
+    plotadora.abrir_csv(cidades)
+    plotadora.plotar(lista_cidades=cidades,
+        chuva=True,
+        estilo='dark_background')
+    </code></pre>
+
+    </main>
+
+    <nav id="nav-menu" style="display: inline">
+        <ul>
+            <li><a href="https://github.com/jultty/dataviz">Repositório</a></li>
+            <li>jultty &bullet; 2022</li>
+            <li><a href="https://jultty.github.io">Quem?</a></li>
+        </ul>
+    </nav>
+</body>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</html>
