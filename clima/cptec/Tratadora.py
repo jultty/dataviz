@@ -95,9 +95,9 @@ class Tratadora:
         for c in lista_cidades:
             # remove palavras desnecessárias, deixando apenas os dados
 
-            filtro = ['Índice UV [0-9]{2}', 'Prob. de Chuva', 'Temperatura',
-                      '[0-9]{2}:[0-9]{2}', '-Feira', 'Manhã', 'Tarde', 'Noite',
-                      '%', '°']
+            filtro = ['Índice UV [0-9]{1,2}', 'Prob. de Chuva', 
+                      'Temperatura', '[0-9]{2}:[0-9]{2}', '-Feira', 'Manhã', 
+                      'Tarde', 'Noite', '%', '°']
             try:
                 for d, dia in enumerate(c.semana):
                     c.semana[d] = ' '.join(c.semana[d].text.split())
@@ -108,7 +108,8 @@ class Tratadora:
                 print(' [tratadora.limpar] AttributeError: O arquivo HTML ' +
                       'para ' + c.nome + ' foi baixado?')
             except Exception as e:
-                print(' [tratadora.limpar] ' + str(e))
+                print(' [tratadora.limpar] Erro ao limpar dia' + 
+                      d + ': ' +  str(e))
 
             # inicializa uma lista vazia que conterá um dia em cada posição
             linhas = []
@@ -153,11 +154,15 @@ class Tratadora:
                     # adiciona os dados ao atributo semana do objeto
                     linhas.append(linha)
                     c.semana[d] = linha
+
+                    # saída para  debug
+                    print(' [tratadora.limpar] linha processada: ' + str(linha))
             except AttributeError:
                 print(' [tratadora.limpar] AttributeError: O arquivo HTML ' +
                       'para ' + c.nome + ' foi baixado?')
             except Exception as e:
-                print(' [tratadora.limpar] ' + str(e))
+                print(' [tratadora.limpar] Erro na varredura: ' + str(e) +
+                      ' na linha ' + str(linha))
 
     def exportar(self, lista_cidades):
         """

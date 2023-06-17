@@ -1,36 +1,32 @@
 from Aranha import Aranha
-from Cidade import Cidade
 from Plotadora import Plotadora
 from Tratadora import Tratadora
 
+"""A data scrapper for INPE climate data"""
 
-# inicializa os objetos
-aranha = Aranha()
-tratadora = Tratadora()
-plotadora = Plotadora()
+__version__ = "0.1.0"
+def main(cidades):
+  # inicializa os objetos
+  aranha = Aranha()
+  tratadora = Tratadora()
+  plotadora = Plotadora()
 
-# define a lista de cidades
-birigui = Cidade('birigui', 'sp')
-manaus = Cidade('manaus', 'am')
+  # carrega e limpa os dados
+  aranha.obter(cidades)
+  tratadora.extrair(cidades)
+  tratadora.limpar(cidades)
 
-cidades = [birigui, manaus]
+  # exibe os dados no console
+  tratadora.exibir(cidades)
 
-# carrega e limpa os dados
-aranha.obter(cidades)
-tratadora.extrair(cidades)
-tratadora.limpar(cidades)
+  # exporta os dados para csv
+  tratadora.exportar(cidades)
 
-# exibe os dados no console
-tratadora.exibir(cidades)
+  # carrega os dados na plotadora e plota os gráficos
+  plotadora.abrir_csv(cidades)
+  plotadora.plotar(lista_cidades=cidades, chuva=False, estilo='dark_background')
+  plotadora.plotar(lista_cidades=cidades, chuva=True, estilo='dark_background')
 
-# exporta os dados para csv
-tratadora.exportar(cidades)
-
-# carrega os dados na plotadora e plota os gráficos
-plotadora.abrir_csv(cidades)
-plotadora.plotar(lista_cidades=cidades, chuva=False, estilo='dark_background')
-plotadora.plotar(lista_cidades=cidades, chuva=True, estilo='dark_background')
-
-# exibe os meteogramas
-for cd in cidades:
+  # exibe os meteogramas
+  for cd in cidades:
     cd.exibir_meteograma()
