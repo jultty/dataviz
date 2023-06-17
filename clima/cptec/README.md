@@ -8,7 +8,19 @@ Os dados são do [Centro de Previsão de Tempo e Estudos Climáticos](https://te
 
 O programa realiza o mínimo de requisições possível, trabalhando primeiro com os dados já salvos no sistema local e pedindo confirmação para cada requisição externa.
 
-Se for utilizar o código, trabalhe com um número pequeno de cidades para evitar sobrecarregar o servidor. 
+Modifique o arquivo `start.py` se desejar adicionar ou remover cidades.
+
+Para executar na sua máquina você pode usar o [Poetry](https://python-poetry.org/).
+
+Uma vez instalado o Poetry, você pode usar:
+```bash
+git clone https://github.com/jultty/dataviz/
+cd dataviz/clima/cptec
+poetry install
+poetry run python start.py
+```
+
+Você também pode instalar as dependências listadas no arquivo `pyproject.toml` manualmente, se preferir, e executar com `python start.py`.
 
 ## Imagens
 ### Com dados de chuva
